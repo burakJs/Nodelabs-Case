@@ -13,4 +13,7 @@ class FontFamily {
 
   /// Font family: EuclidCircularA
   static const String euclidCircularA = 'EuclidCircularA';
+
+  /// Font family: Montserrat
+  static const String montserrat = 'Montserrat';
 }

@@ -35,6 +35,17 @@ flutter_gen:
     lottie: true
     flutter_svg: true
 
+flutter_launcher_icons:
+  android: true
+  image_path_android: "assets/png/sin_flix_logo.png"
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: "assets/png/sin_flix_logo.png"
+  min_sdk_android: 21
+  ios: true
+  image_path_ios: "assets/png/sin_flix_logo.png"
+  remove_alpha_channel_ios: true
+  remove_alpha_ios: true
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -44,6 +55,7 @@ dev_dependencies:
   flutter_gen_runner: ^5.11.0
   json_serializable: ^6.10.0
   envied_generator: ^1.2.0
+  flutter_launcher_icons: ^0.14.4
 
 flutter:
   uses-material-design: true
@@ -52,6 +64,7 @@ flutter:
     - assets/translations/
     - assets/font/
     - assets/env/
+    - assets/png/
 
   fonts:
     - family: EuclidCircularA
@@ -81,3 +94,9 @@ flutter:
         - asset: assets/font/euclid_circular_a/euclid_circular_a_bold_italic.ttf
           weight: 700
           style: italic
+    - family: Montserrat
+      fonts:
+        - asset: assets/font/montserrat/montserrat_semibold.ttf
+          weight: 600
+        - asset: assets/font/montserrat/montserrat_black.ttf
+          weight: 900

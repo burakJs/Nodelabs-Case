@@ -7,12 +7,12 @@ import 'package:nodelabs_case/core/cache/adapter/hive_adapter.dart';
 
 extension HiveRegistrar on HiveInterface {
   void registerAdapters() {
-    registerAdapter(TestModelAdapter());
+    registerAdapter(UserCacheModelAdapter());
   }
 }
 
 extension IsolatedHiveRegistrar on IsolatedHiveInterface {
   void registerAdapters() {
-    registerAdapter(TestModelAdapter());
+    registerAdapter(UserCacheModelAdapter());
   }
 }

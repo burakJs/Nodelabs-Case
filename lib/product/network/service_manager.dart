@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:nodelabs_case/core/utils/enum/app_env_enum.dart';
+import 'package:nodelabs_case/product/network/model/base_error_model.dart';
 import 'package:vexana/vexana.dart';
 
 final class ServiceManager {
@@ -8,13 +9,12 @@ final class ServiceManager {
     manager = _baseNetworkManager();
   }
 
-  // TODO: replace EmptyModel with BaseErrorModel
-  late final INetworkManager<EmptyModel> manager;
+  late final INetworkManager<BaseErrorModel> manager;
 
   String get baseUrl => AppEnvEnum.baseUrl.read;
 
-  NetworkManager<EmptyModel> _baseNetworkManager() =>
-      NetworkManager<EmptyModel>(
+  NetworkManager<BaseErrorModel> _baseNetworkManager() =>
+      NetworkManager<BaseErrorModel>(
         errorModel: null,
         interceptor: _CustomInterceptor(),
         options: BaseOptions(

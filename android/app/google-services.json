@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "933801463796",
+    "project_id": "nodelabssinflix",
+    "storage_bucket": "nodelabssinflix.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:933801463796:android:52ff29ebab61a06727b3a1",
+        "android_client_info": {
+          "package_name": "com.nodelabs.sinflix"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADJ5vyO_9bVyZxb1jXR6oglod2aUomffI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

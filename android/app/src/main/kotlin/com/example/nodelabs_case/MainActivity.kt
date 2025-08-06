@@ -1,4 +1,4 @@
-package com.example.nodelabs_case
+package com.nodelabs.sinflix
 
 import io.flutter.embedding.android.FlutterActivity
 
