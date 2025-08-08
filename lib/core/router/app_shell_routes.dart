@@ -1,5 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:nodelabs_case/feature/home/home_view.dart';
+import 'package:nodelabs_case/feature/profile/profile_view.dart';
+import 'package:nodelabs_case/product/generated/assets.gen.dart';
+import 'package:nodelabs_case/product/generated/locale_keys.g.dart';
 
 enum AppShellRoutes {
   home('/home'),
@@ -24,31 +29,23 @@ enum AppShellRoutes {
 
   Widget pageBuilder(BuildContext context, GoRouterState state) {
     return switch (this) {
-      AppShellRoutes.home => Scaffold(body: const Center(child: Text('Home'))),
-      AppShellRoutes.profile => Scaffold(
-        body: const Center(child: Text('Profile')),
-      ),
+      AppShellRoutes.home => const HomeView(),
+      AppShellRoutes.profile => const ProfileView(),
     };
   }
 
-  // SvgGenImage get icon => switch (this) {
-  //   AppShellRoutes.home => Assets.svg.tabSearch,
-  //   AppShellRoutes.favorite => Assets.svg.tabFavorite,
-  //   AppShellRoutes.myHotel => Assets.svg.tabMyHotel,
-  //   AppShellRoutes.profile => Assets.svg.tabProfile,
-  // };
+  SvgGenImage get icon => switch (this) {
+    AppShellRoutes.home => Assets.svg.homeTab,
+    AppShellRoutes.profile => Assets.svg.profileTab,
+  };
 
-  // SvgGenImage get activeIcon => switch (this) {
-  //   AppShellRoutes.home => Assets.svg.tabSearchActive,
-  //   AppShellRoutes.favorite => Assets.svg.tabFavoriteActive,
-  //   AppShellRoutes.myHotel => Assets.svg.tabMyHotelActive,
-  //   AppShellRoutes.profile => Assets.svg.tabProfileActive,
-  // };
+  SvgGenImage get activeIcon => switch (this) {
+    AppShellRoutes.home => Assets.svg.homeTab,
+    AppShellRoutes.profile => Assets.svg.profileTab,
+  };
 
-  // String get label => switch (this) {
-  //   AppShellRoutes.home => LocaleKeys.filter_tab_search.tr(),
-  //   AppShellRoutes.favorite => LocaleKeys.filter_tab_favorite.tr(),
-  //   AppShellRoutes.myHotel => LocaleKeys.filter_tab_my_hotel.tr(),
-  //   AppShellRoutes.profile => LocaleKeys.filter_tab_profile.tr(),
-  // };
+  String get label => switch (this) {
+    AppShellRoutes.home => LocaleKeys.navigation_home.tr(),
+    AppShellRoutes.profile => LocaleKeys.navigation_profile.tr(),
+  };
 }

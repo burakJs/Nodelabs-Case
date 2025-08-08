@@ -12,11 +12,8 @@ UserLoginResponseModel _$UserLoginResponseModelFromJson(
   data: json['data'] == null
       ? null
       : UserModel.fromJson(json['data'] as Map<String, dynamic>),
-  error: json['error'] == null
-      ? null
-      : BaseErrorModel.fromJson(json['error'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$UserLoginResponseModelToJson(
   UserLoginResponseModel instance,
-) => <String, dynamic>{'data': instance.data, 'error': instance.error};
+) => <String, dynamic>{'data': instance.data};

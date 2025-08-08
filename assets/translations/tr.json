@@ -1,3 +1,80 @@
 {
-  "language_name": "Türkçe"
+  "language_name": "Türkçe",
+  "login": {
+    "welcome_title": "Merhabalar",
+    "welcome_subtitle": "Hesabınıza giriş yaparak tüm özelliklere erişebilirsiniz.",
+    "forgot_password": "Şifremi unuttum",
+    "login_button": "Giriş Yap",
+    "no_account": "Bir hesabın yok mu?",
+    "register": "Kayıt Ol!"
+  },
+  "register": {
+    "welcome_title": "Hoşgeldiniz",
+    "welcome_subtitle": "Hesap oluşturun ve favori filmlerinizi takip edin",
+    "terms_prefix": "Kullanıcı sözleşmesini ",
+    "terms_accept": "okudum ve kabul ediyorum",
+    "terms_suffix": ". Bu sözleşmeyi okuyarak devam ediniz lütfen.",
+    "register_button": "Şimdi Kaydol",
+    "already_account": "Zaten bir hesabın var mı?",
+    "login": "Giriş Yap!",
+    "password_mismatch": "Şifreler eşleşmiyor",
+    "accept_terms_error": "Kullanıcı sözleşmesini kabul etmelisiniz"
+  },
+  "auth_field": {
+    "name_surname": "Ad Soyad",
+    "email": "E-posta",
+    "password": "Şifre",
+    "password_confirm": "Şifre Tekrar"
+  },
+  "upload_photo": {
+    "title": "Profil Detayı",
+    "heading": "Fotoğraflarınızı Yükleyin",
+    "description": "Profilinizi tamamlamak için bir fotoğraf yükleyin ve deneyiminizi kişiselleştirin.",
+    "upload_button": "Fotoğraf Yükle"
+  },
+  "validator": {
+    "errors": {
+      "email": {
+        "empty": "E-posta adresi boş olamaz",
+        "invalid": "Geçerli bir e-posta adresi giriniz"
+      },
+      "password": {
+        "empty": "Şifre boş olamaz",
+        "length": "Şifre en az 6 karakter olmalıdır"
+      },
+      "general": {
+        "empty": "{fieldName} boş olamaz",
+        "length": "{fieldName} en az {minLength} karakter olmalıdır"
+      }
+    }
+  },
+  "profile": {
+    "title": "Profil",
+    "add_photo": "Fotoğraf Ekle",
+    "favorite_movies": "Beğendiğim Filmler",
+    "language": "Dil"
+  },
+  "common": {
+    "limited_offer": "Sınırlı Teklif"
+  },
+  "navigation": {
+    "home": "Anasayfa",
+    "profile": "Profil"
+  },
+  "limited_offer": {
+    "title": "Sınırlı Teklif",
+    "description": "Jeton paketini seçerek bonus kazanın ve yeni bölümlerin kilidini açın!",
+    "bonuses_title": "Alacağınız Bonuslar",
+    "select_package": "Kilidi açmak için bir jeton paketi seçin",
+    "see_all_tokens": "Tüm Jetonları Gör",
+    "token": "Jeton",
+    "weekly": "Haftalık",
+    "per_week": "Başına haftalık"
+  },
+  "bonus_items": {
+    "premium_account": "Premium\nHesap",
+    "more_matching": "Daha Fazla\nEşleşme",
+    "highlights": "Öne\nÇıkarma",
+    "more_like": "Daha Fazla\nBeğeni"
+  }
 }

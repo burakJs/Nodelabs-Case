@@ -19,16 +19,14 @@ final class SplashCubit extends BaseCubit<void> {
 
   Future<List<MovieModel>?> getFavorites() async {
     final response = await _moviesRepository.getFavorites();
-    final error = response?.error;
-    if (error == null) return response?.data;
-    return null;
+    if (response?.error != null) return null;
+    return response?.data?.data;
   }
 
   Future<UserModel?> getProfile() async {
     final response = await _userRepository.getProfile();
-    final error = response?.error;
-    if (error == null) return response?.data;
-    return null;
+    if (response?.error != null) return null;
+    return response?.data?.data;
   }
 
   void addAuthorization(String token) {

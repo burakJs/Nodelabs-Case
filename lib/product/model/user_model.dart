@@ -13,6 +13,8 @@ final class UserModel extends INetworkModel<UserModel> {
   final String? photoUrl;
   final String? token;
 
+  String get firstLetter => name?.substring(0, 1) ?? '';
+
   factory UserModel.fromJson(Map<String, dynamic> json) =>
       _$UserModelFromJson(json);
 

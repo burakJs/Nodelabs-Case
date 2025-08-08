@@ -11,5 +11,9 @@ abstract class BaseThemeData {
     colorScheme: colorScheme,
     scaffoldBackgroundColor: scaffoldBackgroundColor,
     textTheme: AppTextTheme().theme,
+    appBarTheme: AppBarTheme(
+      backgroundColor: scaffoldBackgroundColor,
+      titleTextStyle: AppTextTheme().theme.titleMedium,
+    ),
   );
 }

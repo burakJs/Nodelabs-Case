@@ -12,11 +12,8 @@ UserProfileResponseModel _$UserProfileResponseModelFromJson(
   data: json['data'] == null
       ? null
       : UserModel.fromJson(json['data'] as Map<String, dynamic>),
-  error: json['error'] == null
-      ? null
-      : BaseErrorModel.fromJson(json['error'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$UserProfileResponseModelToJson(
   UserProfileResponseModel instance,
-) => <String, dynamic>{'data': instance.data, 'error': instance.error};
+) => <String, dynamic>{'data': instance.data};

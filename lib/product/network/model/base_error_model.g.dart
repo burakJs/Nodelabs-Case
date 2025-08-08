@@ -8,9 +8,11 @@ part of 'base_error_model.dart';
 
 BaseErrorModel _$BaseErrorModelFromJson(Map<String, dynamic> json) =>
     BaseErrorModel(
-      response: BaseErrorDataModel.fromJson(
-        json['response'] as Map<String, dynamic>,
-      ),
+      response: json['response'] == null
+          ? null
+          : BaseErrorDataModel.fromJson(
+              json['response'] as Map<String, dynamic>,
+            ),
     );
 
 Map<String, dynamic> _$BaseErrorModelToJson(BaseErrorModel instance) =>
@@ -18,8 +20,8 @@ Map<String, dynamic> _$BaseErrorModelToJson(BaseErrorModel instance) =>
 
 BaseErrorDataModel _$BaseErrorDataModelFromJson(Map<String, dynamic> json) =>
     BaseErrorDataModel(
-      code: (json['code'] as num).toInt(),
-      message: json['message'] as String,
+      code: (json['code'] as num?)?.toInt(),
+      message: json['message'] as String?,
     );
 
 Map<String, dynamic> _$BaseErrorDataModelToJson(BaseErrorDataModel instance) =>

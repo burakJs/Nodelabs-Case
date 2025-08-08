@@ -1,3 +1,4 @@
+import 'package:nodelabs_case/product/network/app_response_type.dart';
 import 'package:nodelabs_case/product/repository/user/base_user_repository.dart';
 import 'package:nodelabs_case/product/repository/user/enum/user_endpoint_enum.dart';
 import 'package:nodelabs_case/product/repository/user/model/user_login_request_model.dart';
@@ -13,7 +14,7 @@ final class UserRepository extends BaseUserRepository {
   UserRepository({required super.serviceManager});
 
   @override
-  Future<UserProfileResponseModel?> getProfile() async {
+  Future<AppResponseType<UserProfileResponseModel>?> getProfile() async {
     final response = await serviceManager.manager
         .send<UserProfileResponseModel, UserProfileResponseModel>(
           UserEndpointEnum.profile.path,
@@ -21,11 +22,15 @@ final class UserRepository extends BaseUserRepository {
           method: RequestType.GET,
         );
 
-    return response.data;
+    return (
+      data: response.data,
+      error: response.error?.model?.response,
+      success: response.error == null,
+    );
   }
 
   @override
-  Future<UserLoginResponseModel?> login(
+  Future<AppResponseType<UserLoginResponseModel>?> login(
     UserLoginRequestModel requestModel,
   ) async {
     final response = await serviceManager.manager
@@ -36,11 +41,15 @@ final class UserRepository extends BaseUserRepository {
           data: requestModel.toJson(),
         );
 
-    return response.data;
+    return (
+      data: response.data,
+      error: response.error?.model?.response,
+      success: response.error == null,
+    );
   }
 
   @override
-  Future<UserRegisterResponseModel?> register(
+  Future<AppResponseType<UserRegisterResponseModel>?> register(
     UserRegisterRequestModel requestModel,
   ) async {
     final response = await serviceManager.manager
@@ -51,26 +60,33 @@ final class UserRepository extends BaseUserRepository {
           data: requestModel.toJson(),
         );
 
-    return response.data;
+    return (
+      data: response.data,
+      error: response.error?.model?.response,
+      success: response.error == null,
+    );
   }
 
   @override
-  Future<UserUploadPhotoResponseModel?> uploadPhoto(
+  Future<AppResponseType<UserUploadPhotoResponseModel>?> uploadPhoto(
     UserUploadPhotoRequestModel requestModel,
   ) async {
     final formData = requestModel.toFormData();
     if (formData == null) {
       return null;
     }
-    final response = await serviceManager.manager
-        .send<UserUploadPhotoResponseModel, UserUploadPhotoResponseModel>(
-          UserEndpointEnum.uploadPhoto.path,
-          parseModel: UserUploadPhotoResponseModel(),
-          method: RequestType.POST,
-          data: formData,
-          options: Options(headers: {'Content-Type': 'multipart/form-data'}),
-        );
+    final response = await serviceManager.manager.uploadFile(
+      UserEndpointEnum.uploadPhoto.path,
+      formData,
+      headers: {'Content-Type': 'multipart/form-data'},
+    );
 
-    return response.data;
+    final success =
+        response.statusCode != null &&
+        response.statusCode! >= 200 &&
+        response.statusCode! < 300;
+    final responseData = UserUploadPhotoResponseModel.fromJson(response.data);
+
+    return (data: responseData, error: null, success: success);
   }
 }

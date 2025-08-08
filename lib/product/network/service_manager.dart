@@ -15,11 +15,12 @@ final class ServiceManager {
 
   NetworkManager<BaseErrorModel> _baseNetworkManager() =>
       NetworkManager<BaseErrorModel>(
-        errorModel: null,
+        errorModel: BaseErrorModel(),
         interceptor: _CustomInterceptor(),
         options: BaseOptions(
           baseUrl: baseUrl,
           contentType: ContentType.json.value,
+          receiveDataWhenStatusError: true,
         ),
         onRefreshFail: () async {
           // removeAuthorization();

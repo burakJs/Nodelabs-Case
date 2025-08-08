@@ -30,6 +30,7 @@ final class MovieModel extends INetworkModel<MovieModel> {
     this.images,
     this.comingSoon,
     this.isFavorite,
+    this.isExpanded = false,
   });
 
   final String? id;
@@ -75,6 +76,8 @@ final class MovieModel extends INetworkModel<MovieModel> {
   @JsonKey(name: 'ComingSoon')
   final bool? comingSoon;
   final bool? isFavorite;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  final bool isExpanded;
 
   factory MovieModel.fromJson(Map<String, dynamic> json) =>
       _$MovieModelFromJson(json);
@@ -85,5 +88,61 @@ final class MovieModel extends INetworkModel<MovieModel> {
   @override
   MovieModel fromJson(Map<String, dynamic> json) {
     return MovieModel.fromJson(json);
+  }
+
+  MovieModel copyWith({
+    String? id,
+    String? title,
+    String? year,
+    String? rated,
+    String? released,
+    String? runtime,
+    String? genre,
+    String? director,
+    String? writer,
+    String? actors,
+    String? plot,
+    String? language,
+    String? country,
+    String? awards,
+    String? poster,
+    String? metascore,
+    String? imdbRating,
+    String? imdbVotes,
+    String? imdbID,
+    String? type,
+    String? response,
+    List<String>? images,
+    bool? comingSoon,
+    bool? isFavorite,
+    bool? isExpanded,
+  }) {
+    return MovieModel(
+      id: id ?? this.id,
+      title: title ?? this.title,
+      year: year ?? this.year,
+      rated: rated ?? this.rated,
+      released: released ?? this.released,
+      runtime: runtime ?? this.runtime,
+      genre: genre ?? this.genre,
+      director: director ?? this.director,
+      writer: writer ?? this.writer,
+      actors: actors ?? this.actors,
+      plot: plot ?? this.plot,
+      language: language ?? this.language,
+      country: country ?? this.country,
+      awards: awards ?? this.awards,
+      poster: poster ?? this.poster,
+      metascore: metascore ?? this.metascore,
+      imdbRating: imdbRating ?? this.imdbRating,
+      imdbVotes: imdbVotes ?? this.imdbVotes,
+      imdbID: imdbID ?? this.imdbID,
+      type: type ?? this.type,
+      response: response ?? this.response,
+      images: images ?? this.images,
+      comingSoon: comingSoon ?? this.comingSoon,
+      isFavorite: isFavorite ?? this.isFavorite,
+      isExpanded: isExpanded ?? this.isExpanded,
+    );
   }
 }

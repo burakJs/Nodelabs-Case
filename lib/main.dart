@@ -29,6 +29,12 @@ class MainApp extends StatelessWidget {
       darkTheme: DarkThemeData.instance.theme,
       themeMode: context.watch<AppContext>().theme,
       routerConfig: AppRouter.router,
+      builder: (context, child) {
+        return GestureDetector(
+          onTap: () => FocusScope.of(context).unfocus(),
+          child: child,
+        );
+      },
     );
   }
 }

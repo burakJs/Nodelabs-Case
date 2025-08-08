@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nodelabs_case/core/router/app_routes.dart';
 import 'package:nodelabs_case/core/router/app_shell_routes.dart';
+import 'package:nodelabs_case/feature/tab/tab_view.dart';
 
 @immutable
 final class AppRouter {
@@ -29,8 +30,7 @@ final class AppRouter {
       StatefulShellRoute.indexedStack(
         key: _shellKey,
         builder: (context, state, navigationShell) {
-          // return TabsView(navigationShell: navigationShell);
-          return const Scaffold();
+          return TabView(navigationShell: navigationShell);
         },
         branches: AppShellRoutes.values.map((e) => e.branch).toList(),
       ),

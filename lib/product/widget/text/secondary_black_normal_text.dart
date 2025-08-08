@@ -3,9 +3,9 @@ import 'package:kartal/kartal.dart';
 import 'package:nodelabs_case/product/generated/fonts.gen.dart';
 import 'package:nodelabs_case/product/widget/text/mixin/base_text_mixin.dart';
 
-/// 15px font size and black text (Secondary Font - Montserrat)
 final class SecondaryBlackNormalText extends StatelessWidget
     with BaseTextMixin {
+  /// 15px font size and black text (Secondary Font - Montserrat)
   const SecondaryBlackNormalText(
     this.text, {
     super.key,
@@ -13,6 +13,7 @@ final class SecondaryBlackNormalText extends StatelessWidget
     this.textAlign,
     this.maxLine,
     this.overflow = TextOverflow.ellipsis,
+    this.isUnderline = false,
   });
 
   @override
@@ -25,6 +26,8 @@ final class SecondaryBlackNormalText extends StatelessWidget
   final int? maxLine;
   @override
   final TextOverflow overflow;
+  @override
+  final bool isUnderline;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +37,7 @@ final class SecondaryBlackNormalText extends StatelessWidget
         color: color,
         fontFamily: FontFamily.montserrat,
         fontWeight: FontWeight.w900,
+        decoration: isUnderline ? TextDecoration.underline : null,
       ),
       maxLines: maxLine,
       textAlign: textAlign,

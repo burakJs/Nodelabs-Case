@@ -45,7 +45,7 @@ final class _PaginationBuilderState<T> extends State<PaginationBuilder<T>>
         },
         child: ListView.separated(
           padding: const AppPadding.verticalLow(),
-          physics: const AlwaysScrollableScrollPhysics(),
+          physics: const PageScrollPhysics(),
           itemCount: _hasMore ? _items.length + 1 : _items.length,
           separatorBuilder: widget._separatorBuilder!,
           controller: _scrollController,
@@ -68,7 +68,7 @@ final class _PaginationBuilderState<T> extends State<PaginationBuilder<T>>
         return widget.onRefresh!();
       },
       child: ListView.builder(
-        physics: const AlwaysScrollableScrollPhysics(),
+        physics: const PageScrollPhysics(),
         itemCount: _hasMore ? _items.length + 1 : _items.length,
         controller: _scrollController,
         itemBuilder: (context, index) {

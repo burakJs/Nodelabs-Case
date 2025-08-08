@@ -14,14 +14,11 @@ MoviesUpdateFavoriteResponseModel _$MoviesUpdateFavoriteResponseModelFromJson(
       : MoviesUpdateFavoriteResponseDataModel.fromJson(
           json['data'] as Map<String, dynamic>,
         ),
-  error: json['error'] == null
-      ? null
-      : BaseErrorModel.fromJson(json['error'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$MoviesUpdateFavoriteResponseModelToJson(
   MoviesUpdateFavoriteResponseModel instance,
-) => <String, dynamic>{'data': instance.data, 'error': instance.error};
+) => <String, dynamic>{'data': instance.data};
 
 MoviesUpdateFavoriteResponseDataModel
 _$MoviesUpdateFavoriteResponseDataModelFromJson(Map<String, dynamic> json) =>

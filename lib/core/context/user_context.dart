@@ -20,12 +20,17 @@ final class UserContext extends ChangeNotifier {
   }
 
   void updateFavorites(List<MovieModel> favorites) {
+    _favorites.clear();
     _favorites.addAll(favorites);
     notifyListeners();
   }
 
+  bool isFavorite(MovieModel movie) {
+    return _favorites.any((fav) => fav.id == movie.id);
+  }
+
   void removeFavorite(MovieModel movie) {
-    _favorites.remove(movie);
+    _favorites.removeWhere((fav) => fav.id == movie.id);
     notifyListeners();
   }
 

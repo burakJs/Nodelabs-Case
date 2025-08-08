@@ -6,4 +6,5 @@ mixin BaseTextMixin on StatelessWidget {
   TextAlign? get textAlign;
   int? get maxLine;
   TextOverflow? get overflow;
+  bool get isUnderline;
 }

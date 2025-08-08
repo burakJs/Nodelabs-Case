@@ -1,6 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:nodelabs_case/product/model/movie_model.dart';
-import 'package:nodelabs_case/product/network/base_response_mixin.dart';
 import 'package:nodelabs_case/product/network/model/base_error_model.dart';
 import 'package:vexana/vexana.dart';
 
@@ -8,13 +7,10 @@ part 'movies_list_response_model.g.dart';
 
 @JsonSerializable()
 final class MoviesListResponseModel
-    extends INetworkModel<MoviesListResponseModel>
-    with BaseResponseMixin<MoviesListResponseDataModel> {
+    extends INetworkModel<MoviesListResponseModel> {
   const MoviesListResponseModel({this.data, this.error});
 
-  @override
   final MoviesListResponseDataModel? data;
-  @override
   final BaseErrorModel? error;
 
   factory MoviesListResponseModel.fromJson(Map<String, dynamic> json) =>
@@ -64,6 +60,11 @@ final class PaginationModel extends INetworkModel<PaginationModel> {
   final int? perPage;
   final int? maxPage;
   final int? currentPage;
+
+  bool get hasNextPage {
+    if (currentPage == null || maxPage == null) return false;
+    return currentPage! < maxPage!;
+  }
 
   factory PaginationModel.fromJson(Map<String, dynamic> json) =>
       _$PaginationModelFromJson(json);

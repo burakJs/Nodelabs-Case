@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:nodelabs_case/product/widget/text/mixin/base_text_mixin.dart';
 
-/// 13px font size and bold text (Primary Font - Euclid Circular A)
 final class PrimaryBoldSmallText extends StatelessWidget with BaseTextMixin {
+  /// 13px font size and bold text (Primary Font - Euclid Circular A)
   const PrimaryBoldSmallText(
     this.text, {
     super.key,
@@ -11,6 +11,7 @@ final class PrimaryBoldSmallText extends StatelessWidget with BaseTextMixin {
     this.textAlign,
     this.maxLine,
     this.overflow = TextOverflow.ellipsis,
+    this.isUnderline = false,
   });
 
   @override
@@ -23,6 +24,8 @@ final class PrimaryBoldSmallText extends StatelessWidget with BaseTextMixin {
   final int? maxLine;
   @override
   final TextOverflow overflow;
+  @override
+  final bool isUnderline;
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +34,7 @@ final class PrimaryBoldSmallText extends StatelessWidget with BaseTextMixin {
       style: context.general.textTheme.bodyLarge?.copyWith(
         color: color,
         fontWeight: FontWeight.w700,
+        decoration: isUnderline ? TextDecoration.underline : null,
       ),
       maxLines: maxLine,
       textAlign: textAlign,

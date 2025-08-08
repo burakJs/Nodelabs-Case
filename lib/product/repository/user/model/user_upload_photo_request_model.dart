@@ -5,9 +5,9 @@ import 'package:vexana/vexana.dart';
 final class UserUploadPhotoRequestModel
     extends INetworkModel<UserUploadPhotoRequestModel>
     with IFormDataModel<UserUploadPhotoRequestModel> {
-  const UserUploadPhotoRequestModel({required this.image});
+  const UserUploadPhotoRequestModel({required this.file});
 
-  final File image;
+  final File file;
 
   @override
   UserUploadPhotoRequestModel fromJson(Map<String, dynamic> json) {
@@ -16,6 +16,6 @@ final class UserUploadPhotoRequestModel
 
   @override
   Map<String, dynamic>? toJson() {
-    return {'file': MultipartFile.fromFileSync(image.path)};
+    return {'file': MultipartFile.fromFileSync(file.path)};
   }
 }

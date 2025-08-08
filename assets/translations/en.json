@@ -1,3 +1,80 @@
 {
-  "language_name": "English"
+  "language_name": "English",
+  "login": {
+    "welcome_title": "Welcome",
+    "welcome_subtitle": "Sign in to your account to access all features.",
+    "forgot_password": "Forgot password",
+    "login_button": "Login",
+    "no_account": "Don't have an account?",
+    "register": "Register!"
+  },
+  "register": {
+    "welcome_title": "Welcome",
+    "welcome_subtitle": "Create an account and track your favorite movies",
+    "terms_prefix": "I have read and accept the ",
+    "terms_accept": "terms of service",
+    "terms_suffix": ". Please continue by reading this agreement.",
+    "register_button": "Register Now",
+    "already_account": "Already have an account?",
+    "login": "Login!",
+    "password_mismatch": "Passwords do not match",
+    "accept_terms_error": "You must accept the terms of service"
+  },
+  "auth_field": {
+    "name_surname": "Name Surname",
+    "email": "Email",
+    "password": "Password",
+    "password_confirm": "Password Confirm"
+  },
+  "upload_photo": {
+    "title": "Profile Details",
+    "heading": "Upload Your Photos",
+    "description": "Complete your profile by uploading a photo and personalize your experience.",
+    "upload_button": "Upload Photo"
+  },
+  "validator": {
+    "errors": {
+      "email": {
+        "empty": "Email cannot be empty",
+        "invalid": "Please enter a valid email address"
+      },
+      "password": {
+        "empty": "Password cannot be empty",
+        "length": "Password must be at least 6 characters"
+      },
+      "general": {
+        "empty": "{fieldName} cannot be empty",
+        "length": "{fieldName} must be at least {minLength} characters"
+      }
+    }
+  },
+  "profile": {
+    "title": "Profile",
+    "add_photo": "Add Photo",
+    "favorite_movies": "Favorite Movies",
+    "language": "Language"
+  },
+  "common": {
+    "limited_offer": "Limited Offer"
+  },
+  "navigation": {
+    "home": "Home",
+    "profile": "Profile"
+  },
+  "limited_offer": {
+    "title": "Limited Offer",
+    "description": "Choose your token package to earn bonuses and unlock new episodes!",
+    "bonuses_title": "Bonuses You'll Get",
+    "select_package": "Choose a token package to unlock",
+    "see_all_tokens": "See All Tokens",
+    "token": "Token",
+    "weekly": "Weekly",
+    "per_week": "Per Week"
+  },
+  "bonus_items": {
+    "premium_account": "Premium\nAccount",
+    "more_matching": "More\nMatching",
+    "highlights": "Highlights",
+    "more_like": "More\nLikes"
+  }
 }

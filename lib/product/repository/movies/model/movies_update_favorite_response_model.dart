@@ -1,6 +1,4 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:nodelabs_case/product/network/base_response_mixin.dart';
-import 'package:nodelabs_case/product/network/model/base_error_model.dart';
 import 'package:nodelabs_case/product/repository/movies/enum/movies_update_favorite_action_enum.dart';
 import 'package:vexana/vexana.dart';
 
@@ -8,14 +6,10 @@ part 'movies_update_favorite_response_model.g.dart';
 
 @JsonSerializable()
 final class MoviesUpdateFavoriteResponseModel
-    extends INetworkModel<MoviesUpdateFavoriteResponseModel>
-    with BaseResponseMixin<MoviesUpdateFavoriteResponseDataModel> {
-  const MoviesUpdateFavoriteResponseModel({this.data, this.error});
+    extends INetworkModel<MoviesUpdateFavoriteResponseModel> {
+  const MoviesUpdateFavoriteResponseModel({this.data});
 
-  @override
   final MoviesUpdateFavoriteResponseDataModel? data;
-  @override
-  final BaseErrorModel? error;
 
   factory MoviesUpdateFavoriteResponseModel.fromJson(
     Map<String, dynamic> json,

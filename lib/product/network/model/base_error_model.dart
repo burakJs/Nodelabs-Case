@@ -5,9 +5,8 @@ part 'base_error_model.g.dart';
 
 @JsonSerializable()
 final class BaseErrorModel extends INetworkModel<BaseErrorModel> {
-  final BaseErrorDataModel response;
-
-  const BaseErrorModel({required this.response});
+  const BaseErrorModel({this.response});
+  final BaseErrorDataModel? response;
 
   factory BaseErrorModel.fromJson(Map<String, dynamic> json) =>
       _$BaseErrorModelFromJson(json);
@@ -25,10 +24,10 @@ final class BaseErrorModel extends INetworkModel<BaseErrorModel> {
 
 @JsonSerializable()
 final class BaseErrorDataModel extends INetworkModel<BaseErrorDataModel> {
-  final int code;
-  final String message;
+  const BaseErrorDataModel({this.code, this.message});
 
-  const BaseErrorDataModel({required this.code, required this.message});
+  final int? code;
+  final String? message;
 
   factory BaseErrorDataModel.fromJson(Map<String, dynamic> json) =>
       _$BaseErrorDataModelFromJson(json);

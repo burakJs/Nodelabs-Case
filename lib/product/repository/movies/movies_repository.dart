@@ -1,3 +1,4 @@
+import 'package:nodelabs_case/product/network/app_response_type.dart';
 import 'package:nodelabs_case/product/repository/movies/base_movies_repository.dart';
 import 'package:nodelabs_case/product/repository/movies/enum/movies_endpoint_enum.dart';
 import 'package:nodelabs_case/product/repository/movies/model/movies_favorite_response_model.dart';
@@ -9,7 +10,7 @@ final class MoviesRepository extends BaseMoviesRepository {
   MoviesRepository({required super.serviceManager});
 
   @override
-  Future<MoviesFavoriteResponseModel?> getFavorites() async {
+  Future<AppResponseType<MoviesFavoriteResponseModel>?> getFavorites() async {
     final response = await serviceManager.manager
         .send<MoviesFavoriteResponseModel, MoviesFavoriteResponseModel>(
           MoviesEndpointEnum.favorites.path,
@@ -17,11 +18,17 @@ final class MoviesRepository extends BaseMoviesRepository {
           method: RequestType.GET,
         );
 
-    return response.data;
+    return (
+      data: response.data,
+      error: response.error?.model?.response,
+      success: response.error == null,
+    );
   }
 
   @override
-  Future<MoviesListResponseModel?> getMovies({int page = 1}) async {
+  Future<AppResponseType<MoviesListResponseModel>?> getMovies({
+    int page = 1,
+  }) async {
     final response = await serviceManager.manager
         .send<MoviesListResponseModel, MoviesListResponseModel>(
           MoviesEndpointEnum.list.path,
@@ -30,11 +37,15 @@ final class MoviesRepository extends BaseMoviesRepository {
           queryParameters: {'page': page},
         );
 
-    return response.data;
+    return (
+      data: response.data,
+      error: response.error?.model?.response,
+      success: response.error == null,
+    );
   }
 
   @override
-  Future<MoviesUpdateFavoriteResponseModel?> updateFavorite(
+  Future<AppResponseType<MoviesUpdateFavoriteResponseModel>?> updateFavorite(
     String movieId,
   ) async {
     final response = await serviceManager.manager
@@ -47,6 +58,10 @@ final class MoviesRepository extends BaseMoviesRepository {
           method: RequestType.POST,
         );
 
-    return response.data;
+    return (
+      data: response.data,
+      error: response.error?.model?.response,
+      success: response.error == null,
+    );
   }
 }

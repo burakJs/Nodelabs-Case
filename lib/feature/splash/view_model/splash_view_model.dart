@@ -1,9 +1,9 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nodelabs_case/core/cache/model/user_model.dart';
 import 'package:nodelabs_case/core/router/app_routes.dart';
 import 'package:nodelabs_case/core/router/app_shell_routes.dart';
+import 'package:nodelabs_case/core/utils/duration/app_duration.dart';
 import 'package:nodelabs_case/feature/splash/cubit/splash_cubit.dart';
 import 'package:nodelabs_case/feature/splash/splash_view.dart';
 import 'package:nodelabs_case/product/extension/context_extension.dart';
@@ -21,10 +21,10 @@ mixin SplashViewModel on State<SplashView> {
   Future<void> _init() async {
     final userModel = await UserCacheModel().get();
     if (!mounted) return;
-    final token = kDebugMode
-        ? 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2JjOGQ1OGQ5ZWM0ZDQwMDQwYjgxYjYiLCJpZCI6IjY3YmM4ZDU4ZDllYzRkNDAwNDBiODFiNiIsIm5hbWUiOiJzYWZhIiwiaWF0IjoxNzU0NTAyODQzLCJleHAiOjQ4NjQ5MDI4NDN9.we4xbmtfR031-63BGsOuCDCV4jv_CgUXkegBTsj5GLw'
-        : userModel?.token;
+    final token = userModel?.token;
     if (token == null) {
+      await Future.delayed(AppDuration.medium());
+      if (!mounted) return;
       context.replace(AppRoutes.login.path);
       return;
     }
