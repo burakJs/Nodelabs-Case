@@ -21,7 +21,8 @@ mixin SplashViewModel on State<SplashView> {
   Future<void> _init() async {
     final userModel = await UserCacheModel().get();
     if (!mounted) return;
-    final token = userModel?.token;
+    // final token = userModel?.token;
+    final token = null;
     if (token == null) {
       await Future.delayed(AppDuration.medium());
       if (!mounted) return;
