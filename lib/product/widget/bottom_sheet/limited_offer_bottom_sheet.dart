@@ -159,6 +159,7 @@ final class _BonusSection extends StatelessWidget {
           PrimaryMediumNormalText(LocaleKeys.limited_offer_bonuses_title.tr()),
           const AppSizedBox.heightExtraHigh(),
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: BonusItemEnum.values
                 .map((bonus) => _BonusItem(bonusItem: bonus))
